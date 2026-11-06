@@ -34,7 +34,7 @@ Desarrollar un sistema de visión por computadora y aprendizaje automático clá
 | **RF-05** | **Clasificación Multiclase ML** | El sistema debe comparar y evaluar clasificadores supervisados clásicos: Support Vector Machines (SVM con kernel RBF/lineal), K-Nearest Neighbors (KNN), Random Forest y Multi-Layer Perceptron (MLP). |
 | **RF-06** | **Persistencia del Modelo** | El mejor modelo seleccionado debe serializarse en disco en formato `.joblib` junto con sus metadatos de configuración. |
 | **RF-07** | **Filtro de Disparo Temporal** | Para ejecutar una acción, el clasificador debe predecir el mismo gesto durante al menos 5 cuadros consecutivos, seguido de un periodo de enfriamiento (cooldown) de 1.0 segundo. |
-| **RF-08** | **Integración Multimedia MPRIS** | Tras confirmarse un gesto, el sistema debe despachar el comando correspondiente a Spotify mediante `playerctl` de forma asíncrona o no bloqueante. |
+| **RF-08** | **Integración Multimedia Multiplataforma** | Tras confirmarse un gesto, el sistema debe despachar el comando correspondiente a Spotify de forma no bloqueante (mediante `playerctl` en Linux o mediante la Win32 API `keybd_event` en Windows). |
 | **RF-09** | **Clase Neutro Inoperante** | La detección de la clase "neutro" o la ausencia de mano en el cuadro no debe emitir ningún comando ni alterar el estado del reproductor. |
 
 ---
@@ -47,20 +47,20 @@ Desarrollar un sistema de visión por computadora y aprendizaje automático clá
 | **RNF-02** | **Fluidez de la Demo** | El bucle principal de inferencia en tiempo real debe sostener una tasa de refresco $\ge 15$ FPS continuos en pantalla. |
 | **RNF-03** | **Reproducibilidad Científica** | Las particiones de datos (train/val/test) y los clasificadores estocásticos deben fijar una semilla pseudoaleatoria determinista (`random_state=42`). |
 | **RNF-04** | **Aislamiento de Dependencias** | El software no debe requerir privilegios de superusuario (`sudo`) ni alterar paquetes globales del sistema, confinándose a un entorno virtual de Python (`.venv`). |
-| **RNF-05** | **Robustez Wayland / Linux** | La emisión de eventos multimedia debe apoyarse exclusivamente en la especificación D-Bus MPRIS a través de `playerctl`. |
+| **RNF-05** | **Compatibilidad Multiplataforma** | La emisión de eventos multimedia debe operar de forma nativa en Linux (D-Bus MPRIS vía `playerctl`) y en Windows (Win32 API estándar) sin requerir servicios de emulación o máquinas virtuales. |
 
 ---
 
 ## 5. Mapeo de Gestos y Acciones
 
-| Clase / Gesto | Acción en Spotify | Comando Ejecutado | Comportamiento |
-| :--- | :--- | :--- | :--- |
-| **palma** | Reproducir / Pausar | `playerctl play-pause` | Alterna entre reproducción y pausa. |
-| **senalar** | Pista siguiente | `playerctl next` | Avanza a la siguiente canción en la lista. |
-| **paz** | Pista anterior | `playerctl previous` | Regresa al inicio o pista anterior. |
-| **pulgar** | Subir volumen | `playerctl volume 0.1+` | Incrementa el volumen en 10%. |
-| **puno** | Bajar volumen | `playerctl volume 0.1-` | Reduce el volumen en 10%. |
-| **neutro** | Sin acción | *(Ninguno)* | Ignorado intencionalmente (posición de reposo). |
+| Clase / Gesto | Acción en Spotify | Linux (`playerctl`) | Windows (Virtual Key) | Comportamiento |
+| :--- | :--- | :--- | :--- | :--- |
+| **palma** | Reproducir / Pausar | `playerctl play-pause` | `VK_MEDIA_PLAY_PAUSE (0xB3)` | Alterna entre reproducción y pausa. |
+| **senalar** | Pista siguiente | `playerctl next` | `VK_MEDIA_NEXT_TRACK (0xB0)` | Avanza a la siguiente canción en la lista. |
+| **paz** | Pista anterior | `playerctl previous` | `VK_MEDIA_PREV_TRACK (0xB1)` | Regresa al inicio o pista anterior. |
+| **pulgar** | Subir volumen | `playerctl volume 0.1+` | `VK_VOLUME_UP (0xAF)` | Incrementa el volumen en 10%. |
+| **puno** | Bajar volumen | `playerctl volume 0.1-` | `VK_VOLUME_DOWN (0xAE)` | Reduce el volumen en 10%. |
+| **neutro** | Sin acción | *(Ninguno)* | *(Ninguno)* | Ignorado intencionalmente (posición de reposo). |
 
 ---
 

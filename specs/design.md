@@ -20,8 +20,8 @@ flowchart TB
     subgraph S2 [Inferencia y Control]
         direction LR
         E[Clasificador ML<br/>modelo.joblib] --> F[Filtro de Disparo<br/>5 frames + cooldown]
-        F --> G[playerctl<br/>vía subprocess]
-        G --> H[Spotify MPRIS]
+        F --> G[Despachador Multimedia<br/>Linux: playerctl / Windows: Win32]
+        G --> H[Spotify (Linux / Win)]
     end
     S1 ==>|vector 63 features| S2
 ```
@@ -111,7 +111,7 @@ Para garantizar que el clasificador aprenda la **forma intrínseca** del gesto y
 ```text
 scripts/
 ├── __init__.py
-├── utils.py          # Lógica matemática pura: normalizar(), cálculo de distancias, validadores.
+├── utils.py          # Lógica pura: normalizar(), validadores y despachador multimedia multiplataforma.
 ├── capturar.py       # Interfaz gráfica con OpenCV para captura guiada de dataset en CSV.
 └── demo.py           # Inferencia en tiempo real, máquina de estados y despacho a playerctl.
 

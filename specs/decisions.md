@@ -46,3 +46,12 @@ Este registro documenta de manera inmutable las decisiones estructurales del pro
 - **Contexto:** En versiones modernas de MediaPipe sobre Python 3.12+ (y 3.14), la API clásica `mediapipe.solutions` fue completamente removida por Google.
 - **Decisión:** Implementar la detección de manos usando `mediapipe.tasks.python.vision.HandLandmarker` cargando el modelo pre-entrenado `hand_landmarker.task` en CPU vía TensorFlow Lite XNNPACK.
 - **Consecuencias:** Se garantiza la ejecución en arquitecturas actuales manteniendo la extracción exacta de los 21 landmarks 3D y la compatibilidad con el pipeline planeado.
+
+---
+
+### D-006: Abstracción Multimedia Multiplataforma (Linux / Windows)
+- **Fecha:** 2026-11-05
+- **Estado:** Aprobada
+- **Contexto:** En el equipo de desarrollo, los colaboradores utilizan principalmente Windows, mientras que el entorno de referencia es Linux. `playerctl` es exclusivo de Linux y depende de D-Bus/MPRIS.
+- **Decisión:** Crear una capa de abstracción en `scripts/utils.py` mediante la función `ejecutar_comando_multimedia()`. Si el sistema es Linux, despacha a `playerctl`. Si el sistema es Windows, sintetiza eventos de teclado multimedia mediante la Win32 API (`ctypes.windll.user32.keybd_event`) sin requerir dependencias externas adicionales.
+- **Consecuencias:** El proyecto es 100% multiplataforma. Todos los integrantes del equipo pueden capturar datos, entrenar modelos y ejecutar la demo en vivo de forma nativa en sus sistemas operativos sin máquinas virtuales ni emulaciones.
