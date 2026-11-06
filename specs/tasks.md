@@ -14,7 +14,7 @@ Este archivo es la fuente de trabajo operativo. Las tareas se ejecutan **una a l
   - **Criterio de aceptación:** Archivo `requirements.txt` fijado con versiones estables (`opencv-python`, `mediapipe`, `scikit-learn`, `pandas`, `numpy`, `joblib`, `pytest`, `matplotlib`, `seaborn`) que instala sin conflictos en `.venv`.
   - **Comando de verificación:** `python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt && python3 -c "import cv2, mediapipe, sklearn, pandas, joblib; print('ENV_OK')"`
 
-- [ ] **T-02: Hello World de MediaPipe Hands**
+- [x] **T-02: Hello World de MediaPipe Hands**
   - **Fase:** F0
   - **Owner:** `[AGENTE]`
   - **Dependencias:** T-01

@@ -37,3 +37,12 @@ Este registro documenta de manera inmutable las decisiones estructurales del pro
 - **Contexto:** Los usuarios mantienen la mano en reposo o realizan movimientos transitorios mientras gesticulan o hablan.
 - **Decisión:** Definir una sexta clase explícita (`neutro`) en el dataset y entrenar al clasificador para reconocerla, garantizando que su predicción descarte cualquier acción sobre MPRIS.
 - **Consecuencias:** Se eliminan los falsos positivos por movimientos cotidianos sin requerir umbrales heurísticos de probabilidad arbitrarios.
+
+---
+
+### D-005: Adopción de MediaPipe Tasks API (HandLandmarker)
+- **Fecha:** 2026-11-05
+- **Estado:** Aprobada
+- **Contexto:** En versiones modernas de MediaPipe sobre Python 3.12+ (y 3.14), la API clásica `mediapipe.solutions` fue completamente removida por Google.
+- **Decisión:** Implementar la detección de manos usando `mediapipe.tasks.python.vision.HandLandmarker` cargando el modelo pre-entrenado `hand_landmarker.task` en CPU vía TensorFlow Lite XNNPACK.
+- **Consecuencias:** Se garantiza la ejecución en arquitecturas actuales manteniendo la extracción exacta de los 21 landmarks 3D y la compatibilidad con el pipeline planeado.
