@@ -6,7 +6,7 @@ Este archivo es la fuente de trabajo operativo. Las tareas se ejecutan **una a l
 
 ## Fase F0: Entorno y Verificación de Hardware
 
-- [ ] **T-01: Configuración de Entorno Virtual y Dependencias Base**
+- [x] **T-01: Configuración de Entorno Virtual y Dependencias Base**
   - **Fase:** F0
   - **Owner:** `[AGENTE]`
   - **Dependencias:** Ninguna
