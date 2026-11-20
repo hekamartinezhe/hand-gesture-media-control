@@ -1,0 +1,380 @@
+{
+  "modelo": "RandomForestClassifier",
+  "configuracion": {
+    "n_estimators": 100,
+    "max_depth": 6,
+    "min_samples_leaf": 3,
+    "n_jobs": 1,
+    "random_state": 42
+  },
+  "entrenamiento": {
+    "base_570": "data/vivo/base_ambas_manos.csv",
+    "correccion_izquierda": "data/vivo/correccion_izquierda.csv",
+    "sesion_independiente": "data/vivo/sesion_independiente.csv",
+    "muestras_totales": 689,
+    "muestras_base": 570,
+    "muestras_correccion": 119,
+    "por_mano": {
+      "izquierda": 434,
+      "derecha": 255
+    },
+    "por_clase": {
+      "palma": 106,
+      "senalar": 67,
+      "paz": 104,
+      "pulgar": 144,
+      "puno": 163,
+      "neutro": 105
+    }
+  },
+  "validacion_entre_manos_base_570": {
+    "izquierda": {
+      "accuracy": 0.9302,
+      "accuracy_solo_acciones": 0.9962,
+      "matriz_confusion": [
+        [
+          53,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          52,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          52,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          52,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          52,
+          0
+        ],
+        [
+          21,
+          0,
+          0,
+          0,
+          0,
+          32
+        ]
+      ]
+    },
+    "derecha": {
+      "accuracy": 0.9608,
+      "accuracy_solo_acciones": 0.9507,
+      "matriz_confusion": [
+        [
+          53,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          11,
+          0,
+          0,
+          2,
+          1
+        ],
+        [
+          0,
+          7,
+          45,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          33,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          51,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          52
+        ]
+      ]
+    }
+  },
+  "validacion_temporal_689": {
+    "accuracy": 0.9858,
+    "muestras_test": 211,
+    "matriz_confusion": [
+      [
+        32,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        20,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        32,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        42,
+        0,
+        2
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        50,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        32
+      ]
+    ]
+  },
+  "holdout_correccion_30": {
+    "accuracy": 0.8056,
+    "muestras_test": 36,
+    "matriz_confusion": [
+      [
+        11,
+        0
+      ],
+      [
+        0,
+        18
+      ]
+    ]
+  },
+  "sesion_190": {
+    "accuracy": 1.0,
+    "muestras": 190,
+    "matriz_confusion": [
+      [
+        38,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        38,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        38,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        38,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        38
+      ]
+    ]
+  },
+  "dataset_academico": {
+    "accuracy": 0.325,
+    "muestras": 2400,
+    "nota": "El modelo de demo se entrena con la sesión en vivo; el dataset académico se conserva para el modelo base y el reporte."
+  },
+  "latencia_ms": {
+    "mediana": 7.748,
+    "media": 8.161,
+    "max": 10.023,
+    "nota": "Predicción de una muestra en CPU, sin MediaPipe."
+  },
+  "importancia_features": [
+    {
+      "feature": "pulgar_punta_indice_2d",
+      "importancia": 0.0531
+    },
+    {
+      "feature": "separacion_puntas_2d",
+      "importancia": 0.0503
+    },
+    {
+      "feature": "pulgar_muneca_3d",
+      "importancia": 0.0454
+    },
+    {
+      "feature": "rectitud_indice_2d",
+      "importancia": 0.0413
+    },
+    {
+      "feature": "ancho_palma_3d",
+      "importancia": 0.0412
+    },
+    {
+      "feature": "pulgar_muneca_2d",
+      "importancia": 0.04
+    },
+    {
+      "feature": "separacion_menique_2d",
+      "importancia": 0.0369
+    },
+    {
+      "feature": "angulo_pip_indice_2d",
+      "importancia": 0.0363
+    },
+    {
+      "feature": "pulgar_punta_indice_3d",
+      "importancia": 0.0316
+    },
+    {
+      "feature": "ancho_palma_2d",
+      "importancia": 0.0277
+    }
+  ],
+  "validacion_en_vivo": {
+    "fecha": "2026-11-16",
+    "protocolo": "Diagnóstico guiado con ambas manos, 3 s de preparación y 3.5 s de captura por bloque. Simula el filtro real de 5 cuadros consecutivos.",
+    "cuadros_evaluados": 541,
+    "exactitud_global_6_clases": 0.8632,
+    "exactitud_solo_acciones": 0.9341,
+    "exactitud_acciones_izquierda": 0.9524,
+    "exactitud_acciones_derecha": 0.9113,
+    "bloques_accion_con_disparo_correcto": 10,
+    "bloques_accion": 10,
+    "demo_dry_run": {
+      "acciones_correctas": 5,
+      "acciones_totales": 5,
+      "detalle": [
+        "puno",
+        "pulgar",
+        "pulgar",
+        "puno",
+        "puno"
+      ],
+      "nota": "Flujo real con Enter por gesto y desarme después de cada acción; no se ejecutó playerctl."
+    },
+    "por_gesto": {
+      "izquierda": {
+        "palma": {
+          "cuadros": 53,
+          "accuracy": 1.0
+        },
+        "senalar": {
+          "cuadros": 46,
+          "accuracy": 0.8913
+        },
+        "paz": {
+          "cuadros": 50,
+          "accuracy": 0.96
+        },
+        "pulgar": {
+          "cuadros": 50,
+          "accuracy": 1.0
+        },
+        "puno": {
+          "cuadros": 53,
+          "accuracy": 0.9057
+        },
+        "neutro": {
+          "cuadros": 51,
+          "accuracy": 0.8235
+        }
+      },
+      "derecha": {
+        "palma": {
+          "cuadros": 51,
+          "accuracy": 1.0
+        },
+        "senalar": {
+          "cuadros": 31,
+          "accuracy": 0.871
+        },
+        "paz": {
+          "cuadros": 48,
+          "accuracy": 1.0
+        },
+        "pulgar": {
+          "cuadros": 32,
+          "accuracy": 0.8438
+        },
+        "puno": {
+          "cuadros": 41,
+          "accuracy": 0.7805
+        },
+        "neutro": {
+          "cuadros": 35,
+          "accuracy": 0.0
+        }
+      }
+    },
+    "nota": "Los 10 bloques de acción dispararon el gesto correcto. El neutro izquierdo se confunde con palma en 9/51 cuadros porque la pose relajada es casi idéntica; el flujo real se desarma tras cada acción, así que no ejecuta comandos. El bloque neutro derecho no es una medición válida: se mantuvo el puño del bloque anterior."
+  }
+}

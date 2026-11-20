@@ -1,0 +1,38 @@
+{
+  "modelo": "knn",
+  "clase_sklearn": "KNeighborsClassifier",
+  "hiperparametros": {
+    "n_neighbors": 3,
+    "escalado": "StandardScaler"
+  },
+  "features": "63 landmarks normalizados con espejado de mano izquierda",
+  "clases": [
+    "palma",
+    "senalar",
+    "paz",
+    "pulgar",
+    "puno",
+    "neutro"
+  ],
+  "semilla": 42,
+  "dataset": {
+    "total": 2400,
+    "train": 1680,
+    "val": 360,
+    "test": 360,
+    "clases": [
+      "palma",
+      "senalar",
+      "paz",
+      "pulgar",
+      "puno",
+      "neutro"
+    ]
+  },
+  "metricas_test": {
+    "accuracy": 1.0,
+    "f1_macro": 1.0
+  },
+  "fecha": "2026-11-15T09:07:00",
+  "motivo_seleccion": "Modelo base evaluado en el conjunto de prueba."
+}

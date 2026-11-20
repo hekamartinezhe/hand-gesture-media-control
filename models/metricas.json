@@ -1,0 +1,72 @@
+{
+  "fecha": "2026-11-15T09:06:59",
+  "semilla": 42,
+  "dataset": {
+    "total": 2400,
+    "train": 1680,
+    "val": 360,
+    "test": 360,
+    "clases": [
+      "palma",
+      "senalar",
+      "paz",
+      "pulgar",
+      "puno",
+      "neutro"
+    ]
+  },
+  "modelos": {
+    "svm_rbf": {
+      "accuracy": 1.0,
+      "f1_macro": 1.0,
+      "latencia_ms": 0.5923702899963246,
+      "tiempo_entrenamiento_s": 0.03901046400096675
+    },
+    "svm_lineal": {
+      "accuracy": 1.0,
+      "f1_macro": 1.0,
+      "latencia_ms": 0.5356359600045835,
+      "tiempo_entrenamiento_s": 0.008018489999813028
+    },
+    "random_forest": {
+      "accuracy": 1.0,
+      "f1_macro": 1.0,
+      "latencia_ms": 34.26905780001107,
+      "tiempo_entrenamiento_s": 1.365416724998795
+    },
+    "mlp": {
+      "accuracy": 1.0,
+      "f1_macro": 1.0,
+      "latencia_ms": 0.9984342499956256,
+      "tiempo_entrenamiento_s": 0.19779251599902636
+    },
+    "knn": {
+      "accuracy": 1.0,
+      "f1_macro": 1.0,
+      "latencia_ms": 2.2644848300114973,
+      "tiempo_entrenamiento_s": 0.3623308839996753,
+      "n_neighbors": 3,
+      "vecinos_evaluados": [
+        3,
+        5,
+        7,
+        9,
+        11
+      ]
+    }
+  },
+  "mejor_modelo": {
+    "nombre": "svm_lineal",
+    "accuracy": 1.0,
+    "f1_macro": 1.0,
+    "latencia_ms": 0.5356359600045835,
+    "tiempo_entrenamiento_s": 0.008018489999813028
+  },
+  "modelo_seleccionado": "knn",
+  "motivo_seleccion": "Seleccionamos KNN (k=3) por su simplicidad y baja latencia en CPU.",
+  "evaluacion_test_knn": {
+    "accuracy": 1.0,
+    "f1_macro": 1.0
+  },
+  "latencia_prediccion_ms": 0.9068566650003049
+}

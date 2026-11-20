@@ -1,0 +1,73 @@
+{
+  "modelo": "svm_rbf_geometrico",
+  "fecha": "2026-11-16",
+  "features": 64,
+  "descripcion_features": "Ratios de rectitud, ángulos de articulaciones y distancias normalizadas por el tamaño de la palma; calculadas en 2D y 3D.",
+  "entrenamiento_final": 2400,
+  "split_temporal": {
+    "train": 1680,
+    "test": 720,
+    "accuracy": 0.9888888888888889,
+    "f1_macro": 0.988876529477197,
+    "reporte": {
+      "palma": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 120.0
+      },
+      "senalar": {
+        "precision": 0.9375,
+        "recall": 1.0,
+        "f1-score": 0.967741935483871,
+        "support": 120.0
+      },
+      "paz": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 120.0
+      },
+      "pulgar": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 120.0
+      },
+      "puno": {
+        "precision": 1.0,
+        "recall": 0.9333333333333333,
+        "f1-score": 0.9655172413793104,
+        "support": 120.0
+      },
+      "neutro": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 120.0
+      },
+      "accuracy": 0.9888888888888889,
+      "macro avg": {
+        "precision": 0.9895833333333334,
+        "recall": 0.9888888888888889,
+        "f1-score": 0.988876529477197,
+        "support": 720.0
+      },
+      "weighted avg": {
+        "precision": 0.9895833333333334,
+        "recall": 0.9888888888888889,
+        "f1-score": 0.9888765294771968,
+        "support": 720.0
+      }
+    }
+  },
+  "robustez": {
+    "original": 0.9888888888888889,
+    "espejado": 0.9888888888888889,
+    "rotado_z30": 0.9888888888888889,
+    "rotado_y20": 0.9888888888888889,
+    "jitter": 0.9888888888888889
+  },
+  "suavizado_demo": "EMA con alfa=0.4 sobre los 21 landmarks",
+  "notas": "Las características son invariantes a traslación, escala, lateralidad y rotación. El split temporal evita la fuga por cuadros consecutivos casi idénticos."
+}
